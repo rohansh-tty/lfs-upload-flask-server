@@ -15,8 +15,8 @@ services:
     container_name: flask
     #command: gunicorn --bind 0.0.0.0:8000 app:app
     #command: /usr/bin/python3 main.py
-    #networks: 
-      #- app_network
+    networks: 
+      - app_network
     depends_on:
       - nginx
   nginx:
@@ -27,3 +27,9 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
       - "80:80"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
