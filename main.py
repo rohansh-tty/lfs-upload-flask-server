@@ -10,7 +10,7 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
-def test_route():
+def test():
     return "<p>hello test from docker compsoe</p>"
 
 
